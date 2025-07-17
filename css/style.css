@@ -21,11 +21,33 @@ html {
 
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
     margin: 4% 2% 0 2%;
 }
+
+header {
+    position: relative;
+    height: 100px; /* 必要に応じて高さ調整 */
+  }
+
+  /* .menu-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  } */
+
+  .site-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    top: 50%;
+    transform: translate(-50%, -50%); /* 横・縦 中央に */
+  }
+  
 
 .site-title {
     color: rgb(255, 255, 255);
@@ -33,14 +55,13 @@ header {
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
 }
 
-.menu-button {
+/* .menu-button {
     width: 50px;
     height: 50px;
     flex-shrink: 0;
-}
+} */
 
 .container {
     margin: 0 10%;
@@ -179,14 +200,14 @@ header {
 @media screen and (min-width:1250px) {
     .about-txt1{
         font-size: 14px; 
-        top: 40%;
+        /* top: 40%; */
     }
 }
 
 @media screen and (min-width:1480px) {
     .about-txt1{
         font-size: 16px; 
-        top: 40%;
+        /* top: 40%; */
     }
 }
 
@@ -245,6 +266,7 @@ header {
     align-items: flex-start;
     gap: 65px;
     margin-top: 122px;
+    padding: 2%;
 }
 
 .about-list_more {
@@ -316,6 +338,7 @@ footer {
     justify-content: space-between;
     border-top: 1px solid #000;
     padding-top: 64px;
+    padding-right: 2%;
     background-color: #D9FF00;
     
 }
@@ -375,8 +398,9 @@ footer {
     gap: 5px;
 }
 
-.sns-link a:active {
-   fill: #ffffff;
+.sns-link a:hover {
+   background-color: rgba(255, 255, 255, 0.5);
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
 .sns-name {
@@ -397,7 +421,8 @@ footer {
     fill:  #5E50FF;
   }
   
-  .sns-link a:active svg path {
-    fill: #ffffff;;
+  .sns-link a:hover svg path {
+background-color: rgba(255, 255, 255, 0.5);
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
