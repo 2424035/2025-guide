@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INSTRUMENT</title>
+  <link rel="stylesheet" href="./css/style_modal.css" />
+</head>
+<body>
+
+<header></header>
+
+<div class="midashi">
+  <p>INSTRUMENT</p>
+</div>
+
+<div class="gallery-wrapper">
+  <div class="gallery">
+
+    <div class="gallery-item" data-title="`Uli`uli" data-description="「`uli`uli」とは、ココナッツやひょうたんの中に種などを入れて振ることで音を鳴らす、シェイカーと呼ばれる打楽器の一つです。羽が舞います。">
+      <img src="./img/gakki_2.png" alt="Image 1" />
+      <p>`Uli`uli</p>
+    </div>
+
+    <div class="gallery-item" data-title="Ipu" data-description="「ipu」ひょうたん1つで作られたものは「イプ」と言います。こちらは1つのひょうたんの頭（ひょうたんの括れの上側辺り）を切り落として作られます。">
+      <img src="./img/gakki_3.png" alt="Image 2" />
+      <p>Ipu</p>
+    </div>
+
+    <div class="gallery-item" data-title="Pu’ili" data-description="「pu’ili」とは、竹を素材として作られたおよそ50 cm程度の長さで作られたスティックタイプの打楽器です。肩や手足にたたいて音を鳴らします。とても痛いです。">
+      <img src="./img/gakki_1.png" alt="Image 3" />
+      <p>Pu’ili</p>
+    </div>
+  </div>
+</div>
+
+<!-- モーダル -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="modal-close">&times;</span>
+    <img id="modal-img" src="" alt="拡大画像" />
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<footer></footer>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalClose = document.getElementById('modal-close');
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const parent = img.parentElement;
+      modalImg.src = img.src;
+      modalTitle.textContent = parent.dataset.title || '';
+      modalDesc.textContent = parent.dataset.description || '';
+      modal.style.display = 'flex';
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+ <div class="sns-link">
+                    <a href="index.html">
+                      <span class="sns-text"></span>
+                      <span class="sns-name"></span>
+                      <span class="link-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="32" viewBox="0 0 32 16" fill="none">
+                          <path
+                            d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM0 4.5H15V3.5H0V4.5Z"
+                            fill="black" />
+                        </svg>
+                      </span>
+                    </a>
+                </div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FLOWER</title>
+  <link rel="stylesheet" href="./css/style_modal.css" />
+</head>
+<body>
+
+<header></header>
+
+<div class="midashi">
+  <p>FLOWER</p>
+</div>
+
+<div class="gallery-wrapper">
+  <div class="gallery">
+
+     <!-- <div class="gallery-item" data-title="レイ" data-description="「レイ」とは、花や羽、貝殻など自然の素材を使って作る装飾品を指すハワイ語の言葉。花輪、首輪、といった意味でも使われます。大切な人に愛情や感謝を込めてレイを贈ったり、歓迎の意味で旅行者の首にかけたり、人生の節目となるお祝いごとにプレゼントしたりします。">
+      <img src="./img/Monstera.jpeg" alt="Image 4" />
+      <p>レイ</p>
+    </div> -->
+
+    <div class="gallery-item" data-title="ハイビスカス" data-description="「ハイビスカス」はハワイの州花で、ハワイでは一年中目にすることができます。鮮やかな色や特性から「情熱の花」といわれるハイビスカスの多くは、朝日とともに花開き夕暮れとともにしぼむ一日花。">
+      <img src="./img/hana_1.png" alt="Image 1" />
+      <p>ハイビスカス</p>
+    </div>
+
+    <div class="gallery-item" data-title="ピカケ" data-description="ハワイの代表的な花材のひとつである「ピカケ」。ジャスミンのハワイ名です。香り高く、真珠のように可憐なピカケのレイは女性にとって憧れの存在。">
+      <img src="./img/hana_3.png" alt="Image 2" />
+      <p>ピカケ</p>
+    </div>
+
+    <div class="gallery-item" data-title="プルメリア" data-description="「プルメリア」は数多くあるハワイの花の中でこの花がレイフラワーとして最もポピュラーなのは、１年中開花し長持ちする特性がレイに適しているからと言われています。">
+      <img src="./img/hana_2.png" alt="Image 3" />
+      <p>プルメリア</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- モーダル -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="modal-close">&times;</span>
+    <img id="modal-img" src="" alt="拡大画像" />
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<footer></footer>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalClose = document.getElementById('modal-close');
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const parent = img.parentElement;
+      modalImg.src = img.src;
+      modalTitle.textContent = parent.dataset.title || '';
+      modalDesc.textContent = parent.dataset.description || '';
+      modal.style.display = 'flex';
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+ <div class="sns-link">
+                    <a href="index.html">
+                      <span class="sns-text"></span>
+                      <span class="sns-name"></span>
+                      <span class="link-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="32" viewBox="0 0 32 16" fill="none">
+                          <path
+                            d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM0 4.5H15V3.5H0V4.5Z"
+                            fill="black" />
+                        </svg>
+                      </span>
+                    </a>
+                </div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+* {
+  margin: 0; padding: 0; border: 0; outline: 0;
+  background-color: transparent;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: #5E50FF;
+}
+
+.midashi p{
+  color: rgb(255, 255, 255);
+    font-family: Ligconsolata;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%;
+    letter-spacing: 3px;
+}
+
+html {}
+
+header {
+  margin-top: 50px;
+}
+
+.midashi {
+  padding: 0 5%;
+  margin: 50px 0 20px;
+  text-align: center;
+}
+
+/* 横スクロールギャラリー */
+.gallery-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gallery {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+  cursor: e-resize;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  gap: 20px;
+  padding: 10px;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  color:white;
+}
+
+.gallery-item img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gallery-item p {
+  margin-top: 8px;
+}
+
+/* モーダル */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color:  #5E50FF;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal-content h2 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family:  Ligconsolata;
+}
+
+.modal-content p {
+  margin-top: 10px;
+  color: #ffffff;
+  font-family: Source Han Code JP;
+}
+
+/* 閉じるボタン */
+.close {
+  bottom: 10px;
+  right: 20px;
+  top: auto;
+  font-size: 30px;
+  font-weight: bold;
+  color: #eaeaea;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close:hover {
+  color: #D9FF00;
+}
+
+
+.sns-link {
+    width: 100%;
+}
+
+.sns-link a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    gap: 5px;
+}
+
+.sns-link a:hover {
+   /* background-color: rgba(255, 255, 255, 0.5); */
+   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  }
+
+.sns-name {
+    color: rgb(0, 0, 0);
+    font-family: Ligconsolata;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%;
+    /* 27px */
+}
+
+.sns-text{
+    color: #ffffff;
+}
+
+.sns-link a svg path {
+    fill:   #ffffff;
+  }
+  
+  .sns-link a:hover svg path {
+     fill:   #D9FF00;
+  }
+  

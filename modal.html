@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POSE</title>
+  <link rel="stylesheet" href="./css/style_modal.css" />
+</head>
+<body>
+
+<header></header>
+
+<div class="midashi">
+  <p>POSE</p>
+</div>
+
+<div class="gallery-wrapper">
+  <div class="gallery">
+
+    <div class="gallery-item" data-title="Aloha" data-description="「aloha」は「こんにちは」という意味だけでなく、愛や感謝を伝える言葉です。語源は「顔（Alo）」と「呼吸（ha）」で、思いやりや謙虚さなど5つの精神を表す言葉でもあります。">
+      <img src="./img/pose_1.png" alt="Image 1" />
+      <p>Aloha</p>
+    </div>
+
+    <div class="gallery-item" data-title="Pua" data-description="「pua」は「花」という意味です。また、詩的な表現では「子供」という意味も持つことがあります。">
+      <img src="./img/pose_4.png" alt="Image 2" />
+      <p>Pua</p>
+    </div>
+
+    <div class="gallery-item" data-title="Makani" data-description="「makani」は「風」を意味します。また、そよ風、貿易風、強い風など、風の状態によって様々なハワイ語の単語が存在しますが、一般的な「風」を表す場合に使われます。">
+      <img src="./img/pose_3.png" alt="Image 3" />
+      <p>Makani</p>
+    </div>
+
+     <div class="gallery-item" data-title="Nalu" data-description="「nalu」は「波」を意味します。ハワイでは波が幸せを運んでくる、成功を象徴すると考えられており、ハワイアンジュエリーのモチーフとしても人気があります。">
+      <img src="./img/pose_2.png" alt="Image 5" />
+      <p>Nalu</p>
+    </div>
+
+    <div class="gallery-item" data-title="Lā" data-description="「lā」は、光を浴びて輝く太陽を意味します。lāは不幸や災いを跳ね返す力があると考えられています。そのため、ハワイアンジュエリーでは、魔除け、力強さなどの意味を込めて太陽のモチーフが使われることがあります。">
+      <img src="./img/pose_5.png" alt="Image 4" />
+      <p>Lā</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- モーダル -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="modal-close">&times;</span>
+    <img id="modal-img" src="" alt="拡大画像" />
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<footer></footer>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalClose = document.getElementById('modal-close');
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const parent = img.parentElement;
+      modalImg.src = img.src;
+      modalTitle.textContent = parent.dataset.title || '';
+      modalDesc.textContent = parent.dataset.description || '';
+      modal.style.display = 'flex';
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+ <div class="sns-link">
+                    <a href="index.html">
+                      <span class="sns-text"></span>
+                      <span class="sns-name"></span>
+                      <span class="link-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="32" viewBox="0 0 32 16" fill="none">
+                          <path
+                            d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM0 4.5H15V3.5H0V4.5Z"
+                            fill="black" />
+                        </svg>
+                      </span>
+                    </a>
+                </div>
+
+</body>
+</html>
